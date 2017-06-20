@@ -18,6 +18,8 @@ band_of_interest = int(sys.argv[2]) - 1
 
 outfile_name = sys.argv[3]
 
+DEBUG = False
+
 if("--verbose" in sys.argv):
     DEBUG = True
 
@@ -183,8 +185,9 @@ if(DEBUG): print('Data Ignore Value:',noDataValue)
 
 my_band[my_band==int(noDataValue)]=np.nan
 my_band = my_band/scaleFactor
-print('Cleaned Band ' + str(band_of_interest + 1) +' Reflectance:\n', my_band)
+if(DEBUG): print('Cleaned Band ' + str(band_of_interest + 1) +' Reflectance:\n', my_band)
 
+print('Processing Band ' + str(band_of_interest + 1) + '\n')
 
 # ## Plot histogram of reflectance data values
 
